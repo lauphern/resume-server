@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js",
-    "debug": "nodemon --inspect server.js"
+    "dev": "npx nodemon server.js",
+    "debug": "npx nodemon --inspect server.js"
   },
   "keywords": [],
   "author": "",
