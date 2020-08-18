@@ -12,7 +12,11 @@ const EducationItem = mongoose.model("educationitems", new Schema({
     enum: ["bachelor", "bootcamp", "online-school", "other"]
   },
   year: Number,
-  skills: [String]
+  skills: [String],
+  language: {
+    type: String,
+    enum: ["en", "es"]
+  }
 }));
 
 module.exports = EducationItem;

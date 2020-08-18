@@ -7,7 +7,11 @@ const Job = mongoose.model(
     title: String,
     company: { company_name: String, company_location: String },
     year: Number,
-    tasks: [String]
+    tasks: [String],
+    language: {
+      type: String,
+      enum: ["en", "es"]
+    }
   })
 );
 

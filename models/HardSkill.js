@@ -6,6 +6,10 @@ const HardSkill = mongoose.model(
   new Schema({
     name: String,
     type: { type: String, enum: ["language", "framework", "library", "design"] },
+    language: {
+      type: String,
+      enum: ["en", "es"]
+    }
   })
 );
 
