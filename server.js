@@ -42,8 +42,22 @@ mongoose.connect(process.env.DB, { useNewUrlParser: true , useUnifiedTopology: t
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+//Middleware for handling internationalization
+app.use(function(req, res, next) {
+  if(req.headers["accept-language"]) {
+    const langList = req.headers["accept-language"].split(";")
+    if(langList[0].indexOf("en")) req.preferredLanguage = "es";
+    else req.preferredLanguage = "en";
+    next()
+  } else {
+    req.preferredLanguage = "en";
+    next()
+  }
+})
+
 app.use("/api/v1", require("./routes/index"));
 
+//Middleware for handling authorization
 app.use(function(req, res, next){
   if(!req.headers.authorization) {
     next(new Error("Authorization information is missing or invalid"))
