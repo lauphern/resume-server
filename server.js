@@ -2,9 +2,18 @@ if(process.env.NODE_ENV !== "production") require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const helmet = require("helmet");;
+//TODO
+const helmet = require("helmet");
+const mongoose = require("mongoose");
 
 const app = express();
+
+mongoose.connect(process.env.DB, { useNewUrlParser: true , useUnifiedTopology: true}, (err, db) => {
+  if(err) console.error(err)
+  else {
+    console.log(db)
+  }
+});
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -21,6 +30,6 @@ app.use("/api/v1", require("./routes/languages"));
 app.use("/api/v1", require("./routes/portfolio"));
 
 
-app.listen(process.env.PORT || 3000, () => {debugger;console.log(`Server listening on port ${process.env.PORT}`)})
+app.listen(process.env.PORT || 3000, () => console.log(`Server listening on port ${process.env.PORT}`))
 
 module.exports = app
