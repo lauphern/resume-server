@@ -43,6 +43,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/api/v1", require("./routes/index"));
+
+app.use(function(req, res, next){
+  if(!req.headers.authorization) {
+    next(new Error("Authorization information is missing or invalid"))
+  }
+  else next()
+})
+
 app.use("/api/v1", require("./routes/personal-info"));
 app.use("/api/v1", require("./routes/professional-experience"));
 app.use("/api/v1", require("./routes/education"));
@@ -55,13 +63,18 @@ app.use("/api/v1", require("./routes/portfolio"));
 
 app.use(function (err, req, res, next) {
   console.error(err.stack)
-  res.status(500).send('Something broke!')
+  if(err.message == "Authorization information is missing or invalid") {
+    res.status(401).send(err.message)
+  } else if(err.message) {
+    res.status(500).send(err.message)
+  } else {
+    res.status(500).send('Something broke!')
+  }
 })
 
 app.use(function(req, res, next) {
   res.status(404).send("Sorry can't find that!");
 });
-
 
 app.listen(process.env.PORT || 3000, () => console.log(`Server listening on port ${process.env.PORT}`))
 
