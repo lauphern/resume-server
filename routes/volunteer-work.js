@@ -3,7 +3,7 @@ const router = express.Router();
 const Job = require("../models/Job");
 
 router.get("/volunteer-work", (req, res) => {
-  Job.find({language: req.preferredLanguage})
+  Job.find({volunteer: true, language: req.preferredLanguage})
   .then(result => {
     res.json(result);
   })
