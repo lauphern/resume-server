@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 //TODO
 const helmet = require("helmet");
 const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 
 const app = express();
 
@@ -13,27 +14,28 @@ mongoose.connect(process.env.DB, { useNewUrlParser: true , useUnifiedTopology: t
   else {
     console.log("Database connected");
     const User = require("./models/User");
-
-    // app.use("/", (req, res) => {
-    //   const username = "hola";
-    //   const password = "contra";
-    //   User.findOne({username: username})
-    //   .then(result => {
-    //     if(result) throw new Error();
-    //     else {
-    //       bcrypt.hash(password, 10, (err, hash) => {
-    //         if(err) throw new Error(err);
-    //         else {
-    //           return User.create({username, password: hash})
-    //         }
-    //       })
-    //     }
-    //   })
-    //   .then(result => {
-    //     res.json({newUser: result});
-    //   })
-    //   .catch(err => console.error(err))
+    
+    /* ---------------- NEW USER CREATION ---------------- */
+    //Uncomment this to create a new username
+    //Since the API is gonna be private, it doesn't make sense to
+    //add this feature to the client-side
+    // const username = process.env.username;
+    // const password = process.env.password;
+    // User.findOne({username: username})
+    // .then(result => {
+    //   if(result) throw new Error("That username already exists");
+    //   else {
+    //     bcrypt.hash(password, 10, (err, hash) => {
+    //       if(err) throw new Error(err);
+    //       else {
+    //         User.create({username, password: hash})
+    //         .then(res => console.log(res))
+    //         .catch(err => console.error(err))
+    //       }
+    //     })
+    //   }
     // })
+    // .catch(err => console.error(err))
   }
 });
 
