@@ -19,8 +19,8 @@ mongoose.connect(process.env.DB, { useNewUrlParser: true , useUnifiedTopology: t
     //Uncomment this to create a new username
     //Since the API is gonna be private, it doesn't make sense to
     //add this feature to the client-side
-    // const username = process.env.username;
-    // const password = process.env.password;
+    // const username = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+    // const password = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
     // User.findOne({username: username})
     // .then(result => {
     //   if(result) throw new Error("That username already exists");
