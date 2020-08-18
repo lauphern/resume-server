@@ -6,6 +6,7 @@ const Job = mongoose.model(
   new Schema({
     title: String,
     company: { company_name: String, company_location: String },
+    volunteer: Boolean,
     year: Number,
     tasks: [String],
     language: {
