@@ -1,8 +1,15 @@
 const express = require("express");
 const router = express.Router();
+const EducationItem = require('../models/EducationItem');
 
 router.get("/education", (req, res) => {
-  res.send("education")
+  EducationItem.find({level: {$ne: "certification"}, language: req.preferredLanguage})
+  .then(result => {
+    res.json(result);
+  })
+  .catch(err => {
+    next(err);
+  })
 })
 
 module.exports = router;
