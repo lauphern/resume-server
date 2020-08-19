@@ -7,7 +7,8 @@ const Job = mongoose.model(
     title: String,
     company: { company_name: String, company_location: String },
     volunteer: Boolean,
-    year: Number,
+    start_date: Date,
+    end_date: Date,
     tasks: [String],
     language: {
       type: String,
