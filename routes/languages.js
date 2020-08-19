@@ -3,17 +3,8 @@ const { json } = require("body-parser");
 const router = express.Router();
 
 router.get("/languages", (req, res) => {
-  if(req.app.locals.preferredLanguage === "es") {
-    res.json({
-      "Español": "lengua maternal",
-      "Inglés": "C1 APTIS British Council"
-    })
-  } else {
-    res.json({
-      Spanish: "mother tongue",
-      English: "C1 APTIS British Council"
-    })
-  }
+  const data = req.app.locals.data[req.app.locals.preferredLanguage || "en"];
+  res.json(data.languages);
 })
 
 module.exports = router;
