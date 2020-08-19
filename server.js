@@ -74,6 +74,8 @@ app.use("/api/v1", require("./routes/index"));
   //TODO
   //hacer lo del login - decode the string you get in the header and get the user object
   //from the database and compare with the username and the hash
+  //https://attacomsian.com/blog/nodejs-base64-encode-decode#:~:text=The%20Base64%20decoding%20process%20is,using%20the%20toString()%20method.
+
 //     next(new Error("Authorization information is missing or invalid"))
 //   }
 //   else next()
