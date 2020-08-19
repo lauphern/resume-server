@@ -5,7 +5,7 @@ const HardSkill = mongoose.model(
   "hardskills",
   new Schema({
     name: String,
-    type: { type: String, enum: ["language", "framework", "library", "design"] },
+    type: { type: String, enum: ["language", "framework", "library", "database", "design"] },
     language: {
       type: String,
       enum: ["en", "es"]
