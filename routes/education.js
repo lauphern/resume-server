@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const EducationItem = require("../models/EducationItem");
 
-//TODO add level param
 router.get("/education", (req, res) => {
   if (!req.query.year) next();
   else {
