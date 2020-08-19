@@ -3,7 +3,7 @@ const router = express.Router();
 const HardSkill = require("../models/HardSkill");
 
 router.get("/hard-skills", (req, res) => {
-  HardSkill.find({language: req.preferredLanguage})
+  HardSkill.find({language: req.app.locals.preferredLanguage})
   .then(result => {
     res.json(result);
   })

@@ -46,11 +46,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(function(req, res, next) {
   if(req.headers["accept-language"]) {
     const langList = req.headers["accept-language"].split(";")
-    if(langList[0].indexOf("en")) req.preferredLanguage = "es";
-    else req.preferredLanguage = "en";
+    if(langList[0].indexOf("en")) req.app.locals.preferredLanguage = "es";
+    else req.app.locals.preferredLanguage = "en";
     next()
   } else {
-    req.preferredLanguage = "en";
+    req.app.locals.preferredLanguage = "en";
     next()
   }
 })
@@ -58,12 +58,15 @@ app.use(function(req, res, next) {
 app.use("/api/v1", require("./routes/index"));
 
 //Middleware for handling authorization
-app.use(function(req, res, next){
-  if(!req.headers.authorization) {
-    next(new Error("Authorization information is missing or invalid"))
-  }
-  else next()
-})
+// app.use(function(req, res, next){
+//   if(!req.headers.authorization) {
+  //TODO
+  //hacer lo del login - decode the string you get in the header and get the user object
+  //from the database and compare with the username and the hash
+//     next(new Error("Authorization information is missing or invalid"))
+//   }
+//   else next()
+// })
 
 app.use("/api/v1", require("./routes/personal-info"));
 app.use("/api/v1", require("./routes/professional-experience"));
