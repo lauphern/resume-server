@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const Job = require("../models/Job");
 
-//TODO add year param
 router.get("/volunteer-work", (req, res) => {
   if (!req.query.year) next();
   else {
