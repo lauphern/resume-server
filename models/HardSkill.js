@@ -7,7 +7,7 @@ const HardSkill = mongoose.model(
     name: String,
     type: {
       type: String,
-      enum: ["language", "framework", "library", "database", "cloud computing", "design"],
+      enum: ["language", "framework", "library", "database", "cloud computing", "design", "other"],
     },
     language: {
       type: String,
