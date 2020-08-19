@@ -5,6 +5,7 @@ const Job = require("../models/Job");
 router.get("/volunteer-work", (req, res) => {
   Job.find({volunteer: true, language: req.app.locals.preferredLanguage})
   .then(result => {
+    result.sort((a, b) => b.start_date - a.start_date);
     res.json(result);
   })
   .catch(err => {
