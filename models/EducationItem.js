@@ -12,6 +12,7 @@ const EducationItem = mongoose.model("educationitems", new Schema({
     enum: ["bachelor", "bootcamp", "nano-degree", "certification", "other"]
   },
   year: Number,
+  finished: Boolean,
   skills: [String],
   language: {
     type: String,
