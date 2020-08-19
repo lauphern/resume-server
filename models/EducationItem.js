@@ -9,7 +9,7 @@ const EducationItem = mongoose.model("educationitems", new Schema({
   },
   level: {
     type: String,
-    enum: ["bachelor", "bootcamp", "nano-degree", "certification", "other"]
+    enum: ["bachelor", "bootcamp", "nanodegree", "certification", "other"]
   },
   year: Number,
   finished: Boolean,
