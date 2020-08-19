@@ -55,6 +55,17 @@ app.use(function(req, res, next) {
   }
 })
 
+//Save the data (translations) in locals
+app.use(function(req, res, next) {
+  if(!req.app.locals.data) {
+    const data = require("./data/basicInfo");
+    req.app.locals.data = data;
+    next()
+  } else {
+    next()
+  }
+})
+
 app.use("/api/v1", require("./routes/index"));
 
 //Middleware for handling authorization
