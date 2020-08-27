@@ -1,7 +1,16 @@
 module.exports = {
-  educationSearch: ({model, language}) => {
-    return model.find({
+  educationSearch: ({model, language, level, school_name}) => {
+    if(school_name) return model.find({
+      "school.school_name": school_name,
+      level: "certification",
+      language,
+    })
+    if(!level) return model.find({
       level: { $ne: "certification" },
+      language,
+    })
+    else return model.find({
+      level,
       language,
     })
   }
