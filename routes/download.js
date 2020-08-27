@@ -20,9 +20,9 @@ router.get("/download", (req, res) => {
     educationSearch({ model: EducationItem, language, level: "certification" }),
     jobSearch({ model: Job, language, volunteer: false }),
     jobSearch({ model: Job, language, volunteer: true }),
-    hardSkillSearch({ model: HardSkill, language }),
+    hardSkillSearch({ model: HardSkill }),
     data.softSkills,
-    projectSearch({ model: Project, language }),
+    projectSearch({ model: Project }),
     data.languages,
   ];
   Promise.all(iterable).then(result => {
