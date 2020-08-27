@@ -8,11 +8,7 @@ const HardSkill = mongoose.model(
     type: {
       type: String,
       enum: ["language", "framework", "library", "database", "cloud computing", "design", "other"],
-    },
-    language: {
-      type: String,
-      enum: ["en", "es"],
-    },
+    }
   })
 );
 

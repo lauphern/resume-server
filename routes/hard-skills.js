@@ -8,7 +8,7 @@ router.get("/hard-skills", (req, res, next) => {
   if (!req.query.type) next();
   else {
     const { type } = req.query;
-    hardSkillSearch({model: HardSkill, language: req.app.locals.preferredLanguage, type })
+    hardSkillSearch({model: HardSkill, type })
       .then(result => {
         res.json(result);
       })
@@ -19,7 +19,7 @@ router.get("/hard-skills", (req, res, next) => {
 });
 
 router.get("/hard-skills", (req, res, next) => {
-  hardSkillSearch({model: HardSkill, language: req.app.locals.preferredLanguage })
+  hardSkillSearch({model: HardSkill })
     .then(result => {
       res.json(result);
     })

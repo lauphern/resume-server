@@ -7,6 +7,7 @@ router.get("/", (req, res) => {
     info: data.introduction,
     endpoints: [
       `${process.env.DEV_URL}/personal-info`,
+      `${process.env.DEV_URL}/download`,
       `${process.env.DEV_URL}/professional-experience`,
       `${process.env.DEV_URL}/education`,
       `${process.env.DEV_URL}/certifications`,
@@ -15,7 +16,6 @@ router.get("/", (req, res) => {
       `${process.env.DEV_URL}/soft-skills`,
       `${process.env.DEV_URL}/languages`,
       `${process.env.DEV_URL}/portfolio`,
-      `${process.env.DEV_URL}/download`,
     ],
   });
 });
