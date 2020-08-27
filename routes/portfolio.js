@@ -7,6 +7,11 @@ const { projectSearch } = require("../helpers/search");
 router.get("/portfolio", (req, res, next) => {
   projectSearch({model: Project})
   .then(result => {
+    result.forEach(project => {
+      project.technologies.forEach((technology, i) => {
+        project.technologies[i] = technology.name;
+      })
+    })
     res.json(result);
   })
   .catch(err => {
