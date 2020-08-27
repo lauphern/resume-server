@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const EducationItem = require("../models/EducationItem");
 
-router.get("/education", (req, res) => {
+router.get("/education", (req, res, next) => {
   if (!req.query.year) next();
   else {
     const { year } = req.query
@@ -27,7 +27,7 @@ router.get("/education", (req, res) => {
   }
 });
 
-router.get("/education", (req, res) => {
+router.get("/education", (req, res, next) => {
   if (!req.query.level) next();
   else {
     const { level } = req.query
@@ -45,7 +45,7 @@ router.get("/education", (req, res) => {
   }
 });
 
-router.get("/education", (req, res) => {
+router.get("/education", (req, res, next) => {
   EducationItem.find({
     level: { $ne: "certification" },
     language: req.app.locals.preferredLanguage,

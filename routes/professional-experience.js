@@ -20,7 +20,7 @@ router.get("/professional-experience", (req, res, next) => {
   }
 });
 
-router.get("/professional-experience", (req, res) => {
+router.get("/professional-experience", (req, res, next) => {
   Job.find({ volunteer: false, language: req.app.locals.preferredLanguage })
     .then(result => {
       result.sort((a, b) => b.start_date - a.start_date);

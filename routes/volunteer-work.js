@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Job = require("../models/Job");
 
-router.get("/volunteer-work", (req, res) => {
+router.get("/volunteer-work", (req, res, next) => {
   if (!req.query.year) next();
   else {
     const { year } = req.query
@@ -20,7 +20,7 @@ router.get("/volunteer-work", (req, res) => {
   }
 });
 
-router.get("/volunteer-work", (req, res) => {
+router.get("/volunteer-work", (req, res, next) => {
   Job.find({ volunteer: true, language: req.app.locals.preferredLanguage })
     .then(result => {
       result.sort((a, b) => b.start_date - a.start_date);

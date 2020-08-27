@@ -16,7 +16,7 @@ router.get("/hard-skills", (req, res, next) => {
   }
 });
 
-router.get("/hard-skills", (req, res) => {
+router.get("/hard-skills", (req, res, next) => {
   HardSkill.find({ language: req.app.locals.preferredLanguage })
     .then(result => {
       res.json(result);
