@@ -16,5 +16,9 @@ module.exports = {
   },
   jobSearch: ({model, language, volunteer}) => {
     return model.find({ volunteer, language })
+  },
+  hardSkillSearch: ({model, language, type}) => {
+    if(!type) return model.find({ language })
+    else return model.find({ type, language })
   }
 }

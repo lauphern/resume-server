@@ -2,11 +2,13 @@ const express = require("express");
 const router = express.Router();
 const HardSkill = require("../models/HardSkill");
 
+const { hardSkillSearch } = require("../helpers/search");
+
 router.get("/hard-skills", (req, res, next) => {
   if (!req.query.type) next();
   else {
     const { type } = req.query;
-    HardSkill.find({ type: type, language: req.app.locals.preferredLanguage })
+    hardSkillSearch({model: HardSkill, language: req.app.locals.preferredLanguage, type })
       .then(result => {
         res.json(result);
       })
@@ -17,7 +19,7 @@ router.get("/hard-skills", (req, res, next) => {
 });
 
 router.get("/hard-skills", (req, res, next) => {
-  HardSkill.find({ language: req.app.locals.preferredLanguage })
+  hardSkillSearch({model: HardSkill, language: req.app.locals.preferredLanguage })
     .then(result => {
       res.json(result);
     })
