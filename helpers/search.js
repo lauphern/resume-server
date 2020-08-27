@@ -13,5 +13,8 @@ module.exports = {
       level,
       language,
     })
+  },
+  jobSearch: ({model, language, volunteer}) => {
+    return model.find({ volunteer, language })
   }
 }
