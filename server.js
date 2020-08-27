@@ -52,6 +52,7 @@ app.use("/api/v1", require("./routes/hard-skills"));
 app.use("/api/v1", require("./routes/soft-skills"));
 app.use("/api/v1", require("./routes/languages"));
 app.use("/api/v1", require("./routes/portfolio"));
+app.use("/api/v1", require("./routes/download"));
 
 app.use(function (err, req, res, next) {
   console.error(err.stack);

@@ -16,6 +16,7 @@ router.get("/", (req, res) => {
       `${process.env.DEV_URL}/soft-skills`,
       `${process.env.DEV_URL}/languages`,
       `${process.env.DEV_URL}/portfolio`,
+      `${process.env.DEV_URL}/download`,
     ],
   });
 });
