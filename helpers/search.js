@@ -21,7 +21,7 @@ module.exports = {
     if(!type) return model.find({})
     else return model.find({ type })
   },
-  projectSearch: ({model, language }) => {
-    return model.find({ language })
+  projectSearch: ({model}) => {
+    return model.find({})
   },
 }

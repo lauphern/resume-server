@@ -5,7 +5,7 @@ const Project = require("../models/Project");
 const { projectSearch } = require("../helpers/search");
 
 router.get("/portfolio", (req, res, next) => {
-  projectSearch({model: Project, language: req.app.locals.preferredLanguage})
+  projectSearch({model: Project})
   .then(result => {
     res.json(result);
   })
