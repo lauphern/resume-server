@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const EducationItem = require("../models/EducationItem");
 
+const { educationSearch } = require("../helpers/search");
+
 router.get("/education", (req, res, next) => {
   if (!req.query.year) next();
   else {
@@ -46,10 +48,7 @@ router.get("/education", (req, res, next) => {
 });
 
 router.get("/education", (req, res, next) => {
-  EducationItem.find({
-    level: { $ne: "certification" },
-    language: req.app.locals.preferredLanguage,
-  })
+  educationSearch({model: EducationItem, language: req.app.locals.preferredLanguage})
     .then(result => {
       result.sort((a, b) => b.start_date - a.start_date);
       res.json(result);
