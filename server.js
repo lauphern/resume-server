@@ -1,10 +1,10 @@
 if (process.env.NODE_ENV !== "production") require("dotenv").config();
 const express = require("express");
-const cors = require("cors");
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
 //TODO
 const helmet = require("helmet");
-const mongoose = require("mongoose");
+const cors = require("cors");
 
 const app = express();
 
