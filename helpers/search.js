@@ -20,5 +20,8 @@ module.exports = {
   hardSkillSearch: ({model, language, type}) => {
     if(!type) return model.find({ language })
     else return model.find({ type, language })
-  }
+  },
+  projectSearch: ({model, language }) => {
+    return model.find({ language })
+  },
 }
