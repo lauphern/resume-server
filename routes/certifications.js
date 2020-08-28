@@ -11,7 +11,7 @@ router.get("/certifications", (req, res, next) => {
     educationSearch({ model: EducationItem, language: req.app.locals.preferredLanguage, level: "certification" })
       .then(result => {
         let filtered = result.filter(el => {
-          return el.start_date <= new Date(year, 11, 31) && el.end_date >= new Date(year, 0, 1);
+          return el.start_date <= new Date(year, 11, 31);
         });
         filtered.sort((a, b) => b.start_date - a.start_date);
         res.json(filtered);

@@ -2,7 +2,6 @@ if (process.env.NODE_ENV !== "production") require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-//TODO
 const helmet = require("helmet");
 const cors = require("cors");
 
@@ -18,9 +17,14 @@ mongoose.connect(process.env.DB, { useNewUrlParser: true, useUnifiedTopology: tr
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(cors({
-  origin: 'https://laurapascual.com/'
-}))
+//TODO revisar (solo funciona en glitch sin opciones)
+app.use(cors(
+//   {
+//   origin: 'https://laurapascual.com/'
+// }
+));
+
+app.use(helmet());
 
 //Middleware for handling internationalization
 app.use(function (req, res, next) {
