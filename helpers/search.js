@@ -1,11 +1,13 @@
 module.exports = {
   educationSearch: ({ model, language, level, school_name }) => {
-    if (school_name)
+    if (school_name) {
+      const myRegEx = new RegExp(school_name, "i");
       return model.find({
-        "school.school_name": school_name,
+        "school.school_name": myRegEx,
         level: "certification",
         language,
       });
+    }
     if (!level)
       return model.find({
         level: { $ne: "certification" },
