@@ -18,6 +18,10 @@ mongoose.connect(process.env.DB, { useNewUrlParser: true, useUnifiedTopology: tr
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(cors({
+  origin: 'https://laurapascual.com/'
+}))
+
 //Middleware for handling internationalization
 app.use(function (req, res, next) {
   if (req.headers["accept-language"]) {
