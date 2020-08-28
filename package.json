@@ -1,12 +1,12 @@
 {
-  "name": "server",
+  "name": "resume-server",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "npx nodemon server.js",
-    "debug": "npx nodemon --inspect server.js"
+    "start": "node index.js",
+    "dev": "npx nodemon index.js",
+    "debug": "npx nodemon --inspect index.js"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +23,6 @@
     "dotenv": "^8.2.0"
   },
   "engines": {
-    "node": "^12.18.3"
+    "node": "12.x"
   }
 }

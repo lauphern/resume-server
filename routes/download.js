@@ -56,7 +56,6 @@ router.get("/download", (req, res) => {
     doc.fontSize(12).fillColor('black').text(JSON.stringify(cleanResult[7], null, 5), {paragraphGap: 7, lineGap: 3});
     doc.fontSize(30).fillColor('#00BFFF').text(data.pdfHeaders[8], {paragraphGap: 20});
     doc.fontSize(12).fillColor('black').text(JSON.stringify(cleanResult[8], null, 5), {paragraphGap: 7, lineGap: 3});
-    doc.pipe(fs.createWriteStream("out.pdf"));
     doc.pipe(res);
     doc.end();
   });
