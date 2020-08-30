@@ -38,23 +38,23 @@ router.get("/download", (req, res) => {
       },
     })
     .font('fonts/Source_Code_Pro/SourceCodePro-Regular.ttf')
-    doc.fontSize(30).fillColor('#00BFFF').text(data.pdfHeaders[0], {paragraphGap: 20});
+    doc.fontSize(30).fillColor('#4666FF').text(data.pdfHeaders[0], {paragraphGap: 20});
     doc.fontSize(12).fillColor('black').text(JSON.stringify(cleanResult[0], null, 5), {paragraphGap: 7, lineGap: 3});
-    doc.fontSize(30).fillColor('#00BFFF').text(data.pdfHeaders[1], {paragraphGap: 20});
+    doc.fontSize(30).fillColor('#4666FF').text(data.pdfHeaders[1], {paragraphGap: 20});
     doc.fontSize(12).fillColor('black').text(JSON.stringify(cleanResult[1], null, 5), {paragraphGap: 7, lineGap: 3});
-    doc.fontSize(30).fillColor('#00BFFF').text(data.pdfHeaders[2], {paragraphGap: 20});
+    doc.fontSize(30).fillColor('#4666FF').text(data.pdfHeaders[2], {paragraphGap: 20});
     doc.fontSize(12).fillColor('black').text(JSON.stringify(cleanResult[2], null, 5), {paragraphGap: 7, lineGap: 3});
-    doc.fontSize(30).fillColor('#00BFFF').text(data.pdfHeaders[3], {paragraphGap: 20});
+    doc.fontSize(30).fillColor('#4666FF').text(data.pdfHeaders[3], {paragraphGap: 20});
     doc.fontSize(12).fillColor('black').text(JSON.stringify(cleanResult[3], null, 5), {paragraphGap: 7, lineGap: 3});
-    doc.fontSize(30).fillColor('#00BFFF').text(data.pdfHeaders[4], {paragraphGap: 20});
+    doc.fontSize(30).fillColor('#4666FF').text(data.pdfHeaders[4], {paragraphGap: 20});
     doc.fontSize(12).fillColor('black').text(JSON.stringify(cleanResult[4], null, 5), {paragraphGap: 7, lineGap: 3});
-    doc.fontSize(30).fillColor('#00BFFF').text(data.pdfHeaders[5], {paragraphGap: 20});
+    doc.fontSize(30).fillColor('#4666FF').text(data.pdfHeaders[5], {paragraphGap: 20});
     doc.fontSize(12).fillColor('black').text(JSON.stringify(cleanResult[5], null, 5), {paragraphGap: 7, lineGap: 3});
-    doc.fontSize(30).fillColor('#00BFFF').text(data.pdfHeaders[6], {paragraphGap: 20});
+    doc.fontSize(30).fillColor('#4666FF').text(data.pdfHeaders[6], {paragraphGap: 20});
     doc.fontSize(12).fillColor('black').text(JSON.stringify(cleanResult[6], null, 5), {paragraphGap: 7, lineGap: 3});
-    doc.fontSize(30).fillColor('#00BFFF').text(data.pdfHeaders[7], {paragraphGap: 20});
+    doc.fontSize(30).fillColor('#4666FF').text(data.pdfHeaders[7], {paragraphGap: 20});
     doc.fontSize(12).fillColor('black').text(JSON.stringify(cleanResult[7], null, 5), {paragraphGap: 7, lineGap: 3});
-    doc.fontSize(30).fillColor('#00BFFF').text(data.pdfHeaders[8], {paragraphGap: 20});
+    doc.fontSize(30).fillColor('#4666FF').text(data.pdfHeaders[8], {paragraphGap: 20});
     doc.fontSize(12).fillColor('black').text(JSON.stringify(cleanResult[8], null, 5), {paragraphGap: 7, lineGap: 3});
     doc.pipe(res);
     doc.end();
