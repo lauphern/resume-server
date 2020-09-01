@@ -17,12 +17,9 @@ mongoose.connect(process.env.DB, { useNewUrlParser: true, useUnifiedTopology: tr
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//TODO revisar (solo funciona en glitch sin opciones)
-app.use(cors(
-//   {
-//   origin: 'https://laurapascual.com/'
-// }
-));
+app.use(cors({
+  origin: "https://laurapascual.com"
+}))
 
 app.use(helmet());
 
