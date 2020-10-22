@@ -1,0 +1,8 @@
+{
+  "appService.zipIgnorePattern": [
+    "node_modules{,/**}",
+    ".vscode{,/**}"
+  ],
+  "appService.defaultWebAppToDeploy": "/subscriptions/d53e969f-5ac9-48e2-8c82-da398aaf8148/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/resume-api-server",
+  "appService.deploySubpath": "."
+}

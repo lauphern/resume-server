@@ -27,8 +27,8 @@ app.use(helmet());
 app.use(function (req, res, next) {
   if (req.headers["accept-language"]) {
     const langList = req.headers["accept-language"].split(";");
-    if (langList[0].indexOf("en")) req.app.locals.preferredLanguage = "es";
-    else req.app.locals.preferredLanguage = "en";
+    if (langList[0].indexOf("es") < 0) req.app.locals.preferredLanguage = "en";
+    else req.app.locals.preferredLanguage = "es";
     next();
   } else {
     req.app.locals.preferredLanguage = "en";
